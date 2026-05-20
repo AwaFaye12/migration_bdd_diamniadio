@@ -1,0 +1,10 @@
+19/05/2026 10:51:59,99 - Nettoyage des donnees anciennes 
+Nettoyage termine 
+19/05/2026 10:52:06,29 - Nettoyage des donnees anciennes 
+Nettoyage termine 
+19/05/2026 10:54:43,67 - Nettoyage des donnees anciennes 
+Nettoyage termine 
+19/05/2026 11:02:16,67 - Debut du nettoyage 
+19/05/2026 11:02:17,16 - SUCCES 
+19/05/2026 11:03:56,01 - Debut du nettoyage 
+19/05/2026 11:03:56,37 - SUCCES 

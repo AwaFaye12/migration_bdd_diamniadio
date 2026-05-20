@@ -1,0 +1,97 @@
+========================================
+MIGRATION DE LA BASE test_stage
+Date : 2025-05-18
+========================================
+
+=== ÉTAPE 1 : Analyse de la base source ===
+
+Liste des tables :
+SELECT schemaname, tablename 
+FROM pg_tables 
+WHERE schemaname = 'public'
+ORDER BY tablename;
+------------------
+
+Liste des utilisateurs :
+SELECT usename 
+FROM pg_user 
+WHERE usename NOT IN ('postgres');
+------------------------
+
+Taille totale de la base :
+SELECT pg_size_pretty(pg_database_size('test_stage')) AS taille;
+--------------------------
+
+=== ÉTAPE 2 : Création de la base cible ===
+ 
+CREATE DATABASE test_stage_migre
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'French_France.1252'
+    LC_CTYPE = 'French_France.1252'
+    TEMPLATE = template0;
+
+Nom de la base cible : test_stage_migre
+Date de création :18, 05, 2026
+
+=== ÉTAPE 3 : Export (backup) ===
+
+Fichier(s) généré(s) :
+- migration_schema.sql
+- migration_data.sql
+- migration_complet.sql
+- migration_complet.backup
+- migration_full.backup
+
+Fichier exporté : C:\Backups\migration_full.backup
+Date : (la date d'aujourd'hui)
+Taille du fichier : (regarde dans l'explorateur)
+
+=== ÉTAPE 4 : Import (restauration) ===
+
+Commandes utilisées :
+=== ÉTAPE 4 : Import (restauration) ===
+
+Date : (date d'aujourd'hui)
+Commande utilisée : pg_restore -U postgres -d test_stage_migre -c -v C:\Backups\migration_full.backup
+Résultat : Succès / Échec
+Nombre de tables après import : (le nombre)
+--------------------
+
+=== ÉTAPE 5 : Vérification de l'intégrité ===
+
+Nombre de tables (source) :
+Nombre de tables (cible) :
+
+Nombre de lignes par table (source) :
+Nombre de lignes par table (cible) :
+
+Vérification des séquences : OK / NON OK
+
+=== ÉTAPE 6 : Migration des utilisateurs ===
+
+Utilisateurs recréés :
+- 
+- 
+
+Droits réappliqués : OUI / NON
+
+=== ÉTAPE 7 : Problèmes rencontrés ===
+
+Problème :'pg_dump' n'est pas reconnu
+Solution :PostgreSQL pas dans le PATH → utilise le chemin complet (ex: "C:\Program Files\PostgreSQL\17\bin\pg_dump.exe")
+
+=== TEMPS TOTAL DE LA MIGRATION ===
+
+Heure de début :
+Heure de fin :
+Durée :
+
+=== STATUT FINAL ===
+
+[ ] Migration réussie
+[ ] À reprendre
+[ ] Annulée
+
+Signature : 
